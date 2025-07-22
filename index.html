@@ -1,0 +1,164 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carreras callejeras</title>
+    <!--Vincula el archivo de estilos externo-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/clases.js"></script>
+    <script src="js/funciones.js"></script>
+</head>
+    <body>
+        <header>
+            <h1>Sitio de corredores</h1>
+            <!--Imagen de la pagina-->
+            <img src="img/corredores.png" alt="Carreras de Uruguay">
+        </header>
+        <!--Botones de navegación entre secciones-->
+        <nav>
+            <button type="button" id="idBotonDatos" class="quedaenlinea">Datos</button>
+            <button type="button" id="idBotonEstadisticas" class="quedaenlinea">Estadísticas</button>
+       </nav>
+        <section id="idSectionDatos">
+                <h2> Datos </h2>
+                
+            <article>
+                <h3> Carreras </h3>
+            <form id="idFormularioCarreras" action="#" method="get"> <!--Formulario para agregar nuevas carreras-->
+                <label for = "idNombreCarrera"> Nombre: </label> 
+                <input type="text" id="idNombreCarrera" name="nombre" required>
+                <label for = "idDepartamentoCarrera"> Departamento: </label>
+                <select id="idDepartamentoCarrera" name="Departamento" class="selects">
+                    <option selected value="Montevideo">Montevideo</option>
+                    <option value="Canelones">Canelones</option>
+                    <option value="Cerro Largo">Cerro Largo</option>
+                    <option value="Colonia">Colonia</option>
+                    <option value="Durazno">Durazno</option>
+                    <option value="Flores">Flores</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Lavalleja">Lavalleja</option>
+                    <option value="Maldonado">Maldonado</option>
+                    <option value="Artigas">Artigas</option>
+                    <option value="Paysandú">Paysandú</option>
+                    <option value="Río Negro">Río Negro</option>
+                    <option value="Rivera">Rivera</option>
+                    <option value="Rocha">Rocha</option>
+                    <option value="Salto">Salto</option>
+                    <option value="San José">San José</option>
+                    <option value="Soriano">Soriano</option>
+                    <option value="Tacuarembó">Tacuarembó</option>
+                    <option value="Treinta y Tres">Treinta y Tres</option>
+                </select>
+                <label for = "idFechaCarrera"> Fecha: </label>
+                <input type = "date" id="idFechaCarrera" name= "Fecha" required>
+                <label for = "idCuposCarrera"> Cupo: </label>
+                <input type="number" class= "anchoCupos" id="idCuposCarrera" name="Cupos" value="30" required min="1" max="1000">
+                <button type="button" id="idAgregarCarrera">Agregar Carrera</button>
+            </form>
+            </article>
+            <article> 
+                <h3> Patrocinadores</h3>
+            <form id="idFormularioPatrocinadores" action="#" method="get"> <!--Formulario para agregar patrocinadores-->
+                <label for = "idNombrePatrocinador"> Nombre: </label>
+                <input type="text" id="idNombrePatrocinador" name="nombre" required>
+                <label for = "idRubroPatrocinador"> Rubro: </label>
+                    <select id="idRubroPatrocinador" name="rubro" class="selects">
+                        <option selected value="Alimenticio">Alimenticio</option>
+                        <option value="Banco">Banco</option>
+                        <option value="Bebidas">Bebidas</option>
+                        <option value="Farmacia">Farmacia</option>
+                        <option value="RopaDeportiva">Ropa Deportiva</option>
+                        <option value="Estatal">Estatal</option>
+                        <option value="General">General</option>
+                    </select>
+                <label for = "idCarrerasPatrocinador"> Carreras: </label>
+                <select id="idCarrerasPatrocinador" name="carreras[]" multiple size="4"></select>
+                <button type="button" id="idAgregarPatrocinador">Agregar/Actualizar Patrocinador</button>
+            </form>
+            </article>
+            <article>
+                <h3> Corredores </h3>
+            <form id="idFormularioCorredores" action="#" method="get"> <!--Formulario para agregar corredores-->
+                <label for = "idNombreCorredor"> Nombre: </label>
+                <input type="text" id="idNombreCorredor" name="nombre" required>
+                <label for = "idEdadCorredor"> Edad: </label>
+                <input type="number" id="idEdadCorredor" name="edad" required min="18">
+                <label for = "idCedulaCorredor"> Cédula: </label>
+                <input type="text" id="idCedulaCorredor" name="cedula" required>
+                <label for = "idFechaCorredor"> Fecha de vencimiento de ficha médica: </label>
+                <input type = "date" id="idFechaCorredor" name= "fecha" required>    
+                <label class="quedaenlinea"> Tipo de corredor: </label>
+                <input  type = "radio" class="quedaenlinea" name = "tipoCorredor" value="élite" id= "idElite" > 
+                <label  for = "idElite" class="quedaenlinea">Deportista de élite</label>
+                <input type = "radio" class="quedaenlinea" name = "tipoCorredor" value="común" id= "idComun" checked> 
+                <label  for = "idComun" class="quedaenlinea">Deportista común</label>
+                <button type="button" id="idAgregarCorredor">Agregar corredor</button>
+            </form>
+            </article>
+            <article>
+                <h3> Inscripciones </h3>
+            <form id="idFormularioInscripciones" action="#" method="get"> <!--Formulario para inscripciones-->
+                <label for = "idCorredor"> Corredores: </label>
+                <select class="ancho" id="idCorredor" name="Corredor" ></select>
+                <label for = "idCarreraInscripcion"> Carreras: </label>
+                <select class="ancho" id="idCarreraInscripcion" name="Carrera" ></select>
+                <button type="button" id="idAgregarInscripcion"> Inscribir </button>
+            </form>
+            </article>
+        </section>
+        <!--Seccion para visualizar estadísticas-->
+        <section id="idSectionEstadisticas">
+                <h2> Estadísticas </h2>
+            <article>
+                <h3> Datos Generales </h3>
+                <p id="idPromedio"> Promedio de inscritos por carrera:</p>
+                <p> Carrera/s con más inscriptos: </p>
+                <ul id="idCarrerasMasInscriptos">
+                </ul>
+                <p> Carreras sin inscriptos ordenadas por fecha: </p>
+                <ul id="idCarrerasSinInscriptos">
+                </ul>
+                <p id="idPorcentajeElite"> Porcentaje de corredores de élite:</p>
+            </article>
+            <!--Consulta de inscriptos por carrera-->
+            <article>
+                <h3> Consulta inscriptos </h3>
+            <form id="idConsultaInscripciones" action="#" method="get">
+                <label for = "idCarreraEstadisticas"> Carrera: </label>
+                <select class="ancho" id="idCarreraEstadisticas" name="carrera"></select> 
+                <p class="quedaenlinea">Ordenar por:</p>
+                
+                <input type = "radio" name = "ordenar" class="quedaenlinea" value="1" id= "idOrden" checked>
+                <label for = "idOrden" class="quedaenlinea">Nombre</label>
+                <input type = "radio" name = "ordenar" class="quedaenlinea" value="2" id= "idOrden2" > 
+                <label for = "idOrden2" class="quedaenlinea">Número</label>
+                <br>
+                <br>
+                <table id="idTabla">
+                    <caption>Inscriptos</caption>
+                    <tr><th class="negrita">Nombre</th><th class="negrita">Edad</th><th class="negrita">Cédula</th><th class="negrita">Ficha Médica</th><th class="negrita">Número</th></tr>
+                    
+                </table>
+            </form>
+            </article>
+            <article id="idArticle">
+                <h3> Visualizar Mapa: </h3>
+            <form id="idFormularioMapa" action="#" method="get"> 
+                <input type = "radio" name = "mapa" class="quedaenlinea" value="1" id= "porCarreras" checked> Por Carreras  
+                <input type = "radio" name = "mapa" class="quedaenlinea" value="2" id= "porInscripciones"> Por Inscripciones
+                <div id="idMapaUruguay"></div>
+            </form>
+            </article>
+        </section>
+        <!--Información del curso y de los autores-->
+        <footer>
+            <p> Programación 1 - Obligatorio 1er semestre 2025 - Autores</p>
+            <p> Grupo M1E - Luca Bruni (Número 346902) - <a href="https://uy.linkedin.com/in/luca-heinz-bruni-lange-88a34b367" target="_blank">Link</a></p> 
+            <p> Grupo M1E - Francisco Lino (Número 347691) - <a href="http://linkedin.com/in/franciscolinoit" target="_blank">Link</a></p> 
+        </footer>
+    </body>
+</html>
