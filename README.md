@@ -58,7 +58,11 @@ Juan Francisco Lino
 
 Luca Bruni
 
-This project was built for educational purposes, focusing on web development fundamentals, user interaction, data management, and problem-solving through software engineering principles.
+## 📌 Disclaimer
+
+This project was originally developed as part of an academic assignment at ORT University Uruguay and is published here for educational and portfolio purposes.
+
+---
 
 📬 Contact
 
