@@ -51,24 +51,12 @@ Medical certificate verification
 Statistical analysis
 Interactive map visualization
 PDF export functionality
-📸 Screenshots
 
-Add screenshots here showing:
-
-Home page
-Race registration form
-Interactive map
-Statistics dashboard
-PDF generation feature
 👨‍💻 Authors
 
 Juan Francisco Lino
 
 Luca Bruni
-
-🎓 Academic Project
-
-Developed for the Programming I course at ORT University Uruguay.
 
 This project was built for educational purposes, focusing on web development fundamentals, user interaction, data management, and problem-solving through software engineering principles.
 
